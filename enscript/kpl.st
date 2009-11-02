@@ -31,56 +31,12 @@ state kpl extends HighlightEntry
     string_face(false);
   }
 
-  /* Method call */
-  /\b(self|super|[_[:digit:][:alpha:]]+)\
-([[:space:]]*)\
-(\.)\
-([[:space:]]*)\
-([_[:digit:][:alpha:]]+)\
-\b/ {
-
-    variable_name_face(true);
-    language_print($1);
-    variable_name_face(false);
-
-    language_print($2);
-
+  /* Upper-case Constants */
+  /\b([[:upper:]][[:digit:][:upper:]_]*)\b/ {
     reference_face(true);
-    language_print($3);
+    language_print($0);
     reference_face(false);
-
-    language_print($4);
-
-    function_name_face(true);
-    language_print($5);
-    function_name_face(false);
-
   }
-
-  /\b\
-([_[:digit:][:alpha:]]+)\
-([[:space:]]*)\
-(\()\
-([^)])\
-(\))/ {
-
-    function_name_face(true);
-    language_print($1);
-    function_name_face(false);
-
-    language_print($2);
-
-    reference_face(true);
-    language_print($3);
-    reference_face(false);
-
-    language_print($4);
-
-    reference_face(true);
-    language_print($5);
-    reference_face(false);
-
-}
 
 
   /\b(\
@@ -93,19 +49,19 @@ behavior\
 |interface\
 |method\
 |prefix\
-)([[:space:]]+)(\
-[_[:digit:][:alpha:]]+\
-)/ {
+)\
+([[:space:]]+)\
+([[:alnum:]]+)\
+\b/ {
     keyword_face(true);
     language_print($1);
     keyword_face(false);
 
     language_print($2);
-    
-    reference_face(true);
-    language_print($3);
-    reference_face(false);
 
+    function_name_face(true);
+    language_print($3);
+    function_name_face(false);
   }
 
   /* Types */
@@ -128,13 +84,30 @@ behavior\
     type_face(false);
   }
 
+  /* Built-in operator sorts of things */
+  /\b(alloc\
+|arraySize\
+|asInteger\
+|PtrTo\
+|false\
+|isInstanceOf\
+|isKindOf\
+|new\
+|null\
+|self\
+|sizeOf\
+|super\
+|true\
+)\b/ {
+    builtin_face(true);
+    language_print($0);
+    builtin_face(false);
+  }
 
   /* Keywords */
   /\b\
-(alloc\
-|arraySize\
-|as(Integer|PtrTo)\
-|break\
+(\
+break\
 |by\
 |case\
 |catch\
@@ -160,28 +133,22 @@ behavior\
 |errors\
 |extends\
 |external\
-|false\
 |fields\
 |for\
 |free\
 |if\
 |implements\
-|is(InstanceOf|KindOf)\
 |messages\
 |methods\
-|new\
-|null\
 |of\
 |ptr\
 |renaming\
 |return\
 |returns\
-|sizeOf\
 |superclass\
 |switch\
 |throw\
 |to\
-|true\
 |try\
 |type\
 |until\
@@ -192,20 +159,6 @@ behavior\
     keyword_face(true);
     language_print($0);
     keyword_face(false);
-  }
-
-  /* Symbol operators and such */
-  /(\
-[!=]?=\
-|\|\|?
-|\&\&?\
-|<[<=]?\
-|>(>|>>|=)\
-|[\+\-\*\%\^\/\(\)\[\]\!\:]\
-)/ {
-    reference_face(true);
-    language_print($0);
-    reference_face(false);
   }
 
 }
