@@ -3,6 +3,9 @@
 " Maintainer:   Wil Cooley <wcooley@nakedape.CC>
 " Filenames:    *.c, *.h (conflicts, of course, with C)
 "
+" Note that since the KPL file names conflict with C, you have to put
+" "vim:ft=kpl" in a comment towards the end of the file 
+"
 
 if version < 600
     syntax clear
@@ -11,7 +14,6 @@ elseif exists("b:current_syntax")
 endif
 
 syn match   kplComment      "[-][-].*"
-
 
 syn keyword kplStatement    behavior    endBehavior
 syn keyword kplStatement    class       endClass
