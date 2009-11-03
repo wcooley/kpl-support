@@ -1,0 +1,13 @@
+
+This project exists to provide add-on support for Prof. Harry Porter's KPL
+(Kernel Programming Language), a language developed to support the pedagogical
+emulated machine and operating system BLITZ.
+
+This project is in no way affiliated with the BLITZ project, except that I am
+taking a course which uses BLITZ and KPL.
+
+For more information about KPL and BLITZ, see http://web.cecs.pdx.edu/~harry/Blitz/
+
+All source code included herewith is copyright Wil Cooley and released under
+the GNU General Public License.
+

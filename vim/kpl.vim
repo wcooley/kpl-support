@@ -6,6 +6,9 @@
 " Note that since the KPL file names conflict with C, you have to put
 " "vim:ft=kpl" in a comment towards the end of the file 
 "
+" (C) 2009 Wil Cooley
+" This program is distributed under the GNU General Public License.
+"
 
 if version < 600
     syntax clear

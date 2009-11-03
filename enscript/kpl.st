@@ -2,6 +2,9 @@
  * Name: kpl
  * Description: Kernel programming language
  * Author: Wil Cooley <wcooley@nakedape.cc>
+ *
+ * (C) 2009 Wil Cooley
+ * This program is distributed under the GNU General Public License.
  */
 
 
