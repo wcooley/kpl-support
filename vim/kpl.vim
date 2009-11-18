@@ -51,6 +51,7 @@ syn keyword kplStatement    errors
 syn keyword kplStatement    extends
 syn keyword kplStatement    external
 syn keyword kplStatement    fields
+syn keyword kplStatement    functions
 syn keyword kplStatement    implements
 syn keyword kplStatement    messages
 syn keyword kplStatement    methods
