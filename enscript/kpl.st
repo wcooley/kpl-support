@@ -54,7 +54,7 @@ behavior\
 |prefix\
 )\
 ([[:space:]]+)\
-([[:alnum:]]+)\
+([[:alnum:]_]+)\
 \b/ {
     keyword_face(true);
     language_print($1);
